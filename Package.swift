@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "FinAppletSPM",
+    name: "FinApplet",
     platforms: [
         .iOS(.v9) // 根据你的框架要求调整
     ],
