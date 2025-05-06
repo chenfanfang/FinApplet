@@ -93,5 +93,10 @@
 /// @param completion completion description
 + (void)fat_getImageWithUrl:(NSString *)url completion:(void (^)(UIImage *image, NSError *error))completion;
 
+
+/// 自动返回主题对应的图片
+/// @param imagePrefixName 图片名称的前缀 （icon1_light、icon1_dart）则传icon1
++ (UIImage *)fat_autoThemeImageWithPrefixName:(NSString *)imagePrefixName;
+
 @end
 

@@ -48,6 +48,23 @@
 /// 渲染层执行渲染结束时间。仅 firstRender 指标有效。
 @property (nonatomic, strong) NSNumber *viewLayerRenderEndTime;
 
+//resource的指标参数
+
+
+/// 资源路径。仅 resourceTiming 指标有效。
+@property (nonatomic, copy) NSString *uri;
+
+/// 初始化性能条目的资源类型。仅 resourceTiming 指标有效。
+@property (nonatomic, copy) NSString *InitiatorType;
+
+/// 解析域名开始时间。仅 resourceTiming 指标有效。
+@property (nonatomic, strong) NSNumber *domainLookupStart;
+
+/// 解析域名结束时间。仅 resourceTiming 指标有效。
+@property (nonatomic, strong) NSNumber *domainLookupEnd;
+
+
+
 /// 中文描述信息
 - (NSString *)chineseSimpleDescription;
 

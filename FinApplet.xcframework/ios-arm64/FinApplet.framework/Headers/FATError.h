@@ -152,6 +152,9 @@ typedef NS_ENUM(NSUInteger, FATErrorCode) {
     FATErrorCodeNetdiskAccessError = 20041,                 //没有网盘文件的访问权限
     FATErrorCodeNetdiskGetResError = 20042,                 //网盘获取资源失败
     FATErrorCodeNotReviewBindingError = 20043,              //不是审核应用【非审核应用扫描审核版二维码】
+    FATErrorCodeMessageTemplateNotExist = 20053,            //消息模版不存在
+    FATErrorCodeMessageTemplateUnSupportTemp = 20054,       //临时版不支持订阅消息
+    FATErrorCodeMessageTemplateCommonErr = 20055,           //消息触达其他业务场景的通用错误码，接口返回的错误信息直接返回英文的，SDK直接把这个错误信息抛给小程序
     
     // 后端映射未配置时使用该状态码（防止后端新增但本地未映射的情况）
     FATErrorCodeServiceException = 29999

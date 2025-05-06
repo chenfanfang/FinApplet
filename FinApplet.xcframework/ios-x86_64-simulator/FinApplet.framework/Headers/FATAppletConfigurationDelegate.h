@@ -86,6 +86,16 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 - (void)applet:(FATAppletInfo *)appletInfo decidePolicyForFirstURL:(NSString *)urlString decisionHandler:(void (^)(BOOL))decisionHandler;
 
+
+
+/// 小程序webview组件即将加载url，可以在这里通过userContentController注入js代码
+/// - Parameters:
+///   - appletInfo: 小程序信息
+///   - urlString: 即将加载的url
+///   - userContentController: WKUserContentController，可以注入js
+- (void)applet:(FATAppletInfo *)appletInfo webviewWillLoadURL:(NSString *)urlString withUserContentController:(WKUserContentController *)userContentController;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
