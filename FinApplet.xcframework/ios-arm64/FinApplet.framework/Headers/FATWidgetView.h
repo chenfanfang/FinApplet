@@ -22,10 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FATWidgetView : UIView
 @property (nonatomic, strong) NSString *widgetId;
+@property (nonatomic, copy) NSString *widgetRunId; //小组件运行id，多开小组件时使用
 @property (nonatomic, weak) id<FATWidgetViewDelegate> delegate;
 
 /// 小组件的内容宽高
 @property (nonatomic, assign) CGSize contentSize;
+
+//实例id，多开小组件场景下使用，比如多开小组件需要清理小组件，需要传实例id
+- (NSString *)instanceId;
 @end
 
 NS_ASSUME_NONNULL_END

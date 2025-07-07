@@ -96,6 +96,9 @@ typedef NS_ENUM(NSUInteger, FATVideoFullScreenMode) {
  */
 @property (nonatomic, assign) BOOL hideMiniProgramMoreButton;
 
+/** 是否需要强制更新新版本后再启动小程序(默认为NO) */
+@property (nonatomic, assign) BOOL forceUpdate;
+
 @end
 
 @interface FATAppletBaseRequest : FATAppletCommonRequest
@@ -193,6 +196,7 @@ typedef NS_ENUM(NSUInteger, FATVideoFullScreenMode) {
 /// 体验版小程序会带小程序信息
 @property (nonatomic, copy) NSDictionary *trialInfo;
 
+
 @end
 
 /// 小程序解密请求（二维码打开小程序）
@@ -200,6 +204,7 @@ typedef NS_ENUM(NSUInteger, FATVideoFullScreenMode) {
 
 
 @property (nonatomic, copy) NSString *appletId; //管理小程序打开体验版，info加密信息中没有带appletId字段
+
 /**
  加密信息
 */
@@ -213,8 +218,6 @@ typedef NS_ENUM(NSUInteger, FATVideoFullScreenMode) {
  二维码内容
 */
 @property (nonatomic, strong) NSString *qrCode;
-
-
 
 @end
 
@@ -329,11 +332,6 @@ typedef NS_ENUM(NSUInteger, FATVideoFullScreenMode) {
  拓展信息（在代理方法中透传使用）
  */
 @property (nonatomic, copy) NSDictionary *extraData;
-
-/**
- 强制更新
- */
-@property (nonatomic, assign) BOOL forceUpdate;
 
 @end
 

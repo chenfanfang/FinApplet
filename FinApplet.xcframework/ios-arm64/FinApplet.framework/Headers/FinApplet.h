@@ -55,3 +55,8 @@
 #import "FATAppletHUD.h"
 #import "FATMediaInfo.h"
 #import "FATAppletInteractionDelegate.h"
+#import "FATCustomEmbedViewProtocol.h"
+#import "FATEmbedComponentInfo.h"
+#import "FATEmbedComponentEvent.h"
+#import "FATEmbedComponentDelegate.h"
+#import "FATEmbedComponentManager.h"

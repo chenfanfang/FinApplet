@@ -27,6 +27,15 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, copy) NSString *widgetId;
 
+//是否允许多开小组件，设置为YES同一个widgetId可以创建多个小组件
+@property (nonatomic, assign) BOOL enableMultiWidget;
+
+/**
+ 组件运行id，选填，需要跟enableMultiWidget配合使用，如果是多开小组件，传了widgetRunId，sdk内部会用widgetId+widgetRunId生成一个小组件实例id，如果不传widgetRunId，
+ sdk内部会根据一定规则生成widgetRunId
+*/
+@property (nonatomic, copy) NSString *widgetRunId;
+
 /**
 组件的启动参数，非必填。
 支持的key，请参考FATStartParamKey
@@ -60,6 +69,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 //组件大小，非必填，组件加载成功后可以再设置
 @property (nonatomic, assign) CGSize widgetSize;
+
+/** 是否需要强制更新新版本后再启动小程序(默认为NO) */
+@property (nonatomic, assign) BOOL forceUpdate;
 
 @end
 
@@ -164,6 +176,10 @@ NS_ASSUME_NONNULL_BEGIN
  二维码内容
 */
 @property (nonatomic, strong) NSString *qrCode;
+
+/** 是否需要强制更新新版本后再启动小程序(默认为NO) */
+@property (nonatomic, assign) BOOL forceUpdate;
+
 @end
 
 @interface FATWidgetDecryptRequest : NSObject
@@ -184,6 +200,9 @@ NS_ASSUME_NONNULL_BEGIN
  二维码打开小组件时，对应的二维码链接内容
  */
 @property (nonatomic, copy) NSString *qrCode;
+
+/** 是否需要强制更新新版本后再启动小程序(默认为NO) */
+@property (nonatomic, assign) BOOL forceUpdate;
 
 @end
 

@@ -60,7 +60,7 @@
 
 
 /// 清理wdiget
-/// - Parameter widgetId: widgetId
+/// - Parameter widgetId: 小组件id
 - (void)cleanWidget:(NSString *)widgetId;
 
 

@@ -82,11 +82,6 @@ apm 统计的扩展信息
 */
 @property (nonatomic, strong) NSDictionary *apmExtension;
 
-/** 是否开启Crash防崩溃，默认为NO。
- 如果开启，可以防止如下类型的崩溃：UnrecognizedSelector、Notification、Timer、Container(数组越界，字典插入nil等)、String (越界、nil等)
- 如果在开发阶段，建议关闭该属性，否则开发时不便于及时发现代码中的崩溃问题。
-*/
-@property (nonatomic, assign) BOOL startCrashProtection;
 
 @property (nonatomic, strong) NSDictionary *theme;
 
@@ -287,5 +282,12 @@ SDK指纹，证联服务器时，必填
  当设置为FATBOOLStateForbidden时，所有版本强制关闭vconsole，且不可调api开启
  */
 @property (nonatomic, assign) FATBOOLState enableAppletDebug __attribute__((deprecated("该属性(自2.41.11起)废弃，建议使用appletDebugMode")));
+
+
+/** 是否开启Crash防崩溃，默认为NO。
+ 如果开启，可以防止如下类型的崩溃：UnrecognizedSelector、Notification、Timer、Container(数组越界，字典插入nil等)、String (越界、nil等)
+ 如果在开发阶段，建议关闭该属性，否则开发时不便于及时发现代码中的崩溃问题。
+*/
+@property (nonatomic, assign) BOOL startCrashProtection __attribute__((deprecated("该属性(自2.48.9起)废弃,使用后不起作用, 如果需要使用，请在项目的info.plist文件中添加boolean字段FatCrashProtection:YES")));
 
 @end

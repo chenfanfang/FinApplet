@@ -44,6 +44,8 @@
 #import "FATAppletLoadingPageLifeCycleDelegate.h"
 #import "FATAppletInteractionDelegate.h"
 #import "FATAppletTraceDelegate.h"
+#import "FATEmbedComponentDelegate.h"
+#import "FATEmbedComponentManager.h"
 
 @interface FATClient : NSObject
 
@@ -160,6 +162,15 @@
 //小组件相关API管理器
 @property (nonatomic, strong) FATWidgetManager *widgetManager;
 
+/**
+ 小程序自定义同层组件的代理事件
+ */
+@property (nonatomic, weak) id<FATEmbedComponentDelegate> embedComponentDelegate;
+
+
+/// 自定义同层组件管理器
+@property (nonatomic, strong) FATEmbedComponentManager *embedComponentManager;
+
 
 + (instancetype)sharedClient;
 
@@ -249,6 +260,11 @@
 删除本地的所有小程序（从磁盘 和 内存中都删除）
 */
 - (void)clearLocalApplets;
+
+/// 删除指定用户的缓存信息，如果userId传空，则删除当前用户的缓存信息
+/// @param userId  用户id
+/// @param completion 完成回调
+- (void)clearUserCache:(NSString *)userId completion:(dispatch_block_t)completion;
 
 #pragma mark - update & download applets api
 /**
@@ -511,6 +527,18 @@
                          completion:(void (^)(BOOL result, FATError *error))completion
                     closeCompletion:(dispatch_block_t)closeCompletion;
 
+
+/// 在小程序当前页面push一个原生页面
+/// @param appletId  小程序id
+/// @param viewController  原生页面
+/// @param animated  是否动画
+- (BOOL)applet:(NSString *)appletId pushNativeViewController:(UIViewController *)viewController animated:(BOOL)animated;
+
+///  打开指定小程序的某个页面
+/// @param appletId  小程序id
+/// @param pagePath  页面path
+/// @param complete 完成回调
+- (void)applet:(NSString *)appletId pushAppletPage:(NSString *)pagePath query:(NSString *)query withCompletion:(void(^)(NSError *error))completion;
 
 #pragma mark - search applet
 
